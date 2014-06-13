@@ -1,0 +1,8 @@
+<% require_asset 'opal' %>
+<% require_asset 'minitest' %>
+<% require_asset 'opal/minitest' %>
+<% require_asset 'minitest/autorun' %>
+
+<% Dir.glob('test/**/*_test.{rb,opal}').each { |file|
+  require_asset file.sub(/^test\//, '').sub(/\.{rb,opal}$/, '')
+} %>
