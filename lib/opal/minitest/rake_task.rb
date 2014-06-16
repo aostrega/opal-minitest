@@ -18,10 +18,10 @@ module Opal
             Rack::Server.start(app: Server.new, Port: PORT, server: 'webrick')
           }
 
-          system "phantomjs #{RUNNER} \"http://localhost:#{PORT}\""
+          #system "phantomjs #{RUNNER} \"http://localhost:#{PORT}\""
 
-          Process.kill(:SIGINT, server)
-          Process.wait
+          #Process.kill(:SIGINT, server)
+          #Process.wait
         end
       end
 
@@ -30,6 +30,7 @@ module Opal
           super
 
           use_gem 'minitest'
+          $LOAD_PATH.each { |p| append_path(p) }
           append_path 'test'
           self.main = 'opal/minitest/loader'
         end

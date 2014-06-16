@@ -1,4 +1,4 @@
-class BacteriumTest < MiniTest::Test
+class BacteriumTest < Minitest::Test
   def setup
     @object = Bacterium.new
   end
