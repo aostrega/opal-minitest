@@ -1,5 +1,5 @@
 module Opal
-  module MiniTest
+  module Minitest
     VERSION = '0.0.0'
   end
 end

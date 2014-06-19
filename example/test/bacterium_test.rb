@@ -1,4 +1,6 @@
-class BacteriumTest < Minitest::Test
+require 'bacterium'
+
+class BacteriumTest < Opal::Minitest::Test
   def setup
     @object = Bacterium.new
   end

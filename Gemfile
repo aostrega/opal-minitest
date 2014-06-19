@@ -4,4 +4,3 @@ gemspec
 
 gem 'opal'
 gem 'rake'
-gem 'minitest'

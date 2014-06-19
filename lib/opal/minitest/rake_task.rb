@@ -29,7 +29,6 @@ module Opal
         def initialize
           super
 
-          use_gem 'minitest'
           $LOAD_PATH.each { |p| append_path(p) }
           append_path 'test'
           self.main = 'opal/minitest/loader'
