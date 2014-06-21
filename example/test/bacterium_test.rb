@@ -1,6 +1,6 @@
 require 'bacterium'
 
-class BacteriumTest < Opal::Minitest::Test
+class BacteriumTest < Minitest::Test
   def setup
     @object = Bacterium.new
   end

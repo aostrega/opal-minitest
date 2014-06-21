@@ -64,4 +64,7 @@ module Opal
   end
 end
 
+# shim
+Minitest = Opal::Minitest
+
 require "opal/minitest/test"
