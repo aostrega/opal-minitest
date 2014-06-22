@@ -3,7 +3,7 @@
 var url = phantom.args[0],
     page = require('webpage').create();
 
-page.onConsoleMessage = console.log;
+page.onConsoleMessage = function(msg) { console.log(msg) };
 
 page.open(url, function(loadStatus) {
   if (loadStatus !== 'success') {
