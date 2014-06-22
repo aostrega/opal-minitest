@@ -1,3 +1,4 @@
 source 'http://rubygems.org'
 
 gem 'opal-minitest', path: '../'
+gem 'minitest', '~> 5.3.2'

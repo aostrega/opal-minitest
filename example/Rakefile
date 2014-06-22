@@ -4,3 +4,14 @@ require 'opal/minitest/rake_task'
 Opal.append_path File.expand_path('../opal', __FILE__)
 
 Opal::MiniTest::RakeTask.new(:default)
+
+
+desc "Run tests through regular Minitest"
+task('regtest') do
+  require 'minitest'
+  require 'minitest/autorun'
+
+  %w[opal test].each { |p| $LOAD_PATH << p }
+
+  Dir['test/**/*_test.rb'].each { |f| require_relative f }
+end
