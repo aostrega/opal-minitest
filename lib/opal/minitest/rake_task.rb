@@ -15,7 +15,12 @@ module Opal
           require 'webrick'
 
           server = fork {
-            Rack::Server.start(app: Server.new, Port: PORT, server: 'webrick')
+            Rack::Server.start(
+              app: Server.new,
+              Port: PORT,
+              server: 'webrick',
+              Logger: WEBrick::Log.new('/dev/null'),
+              AccessLog: [])
           }
 
           system "phantomjs #{RUNNER} \"http://localhost:#{PORT}\""
