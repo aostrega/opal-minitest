@@ -34,7 +34,7 @@ module Opal
       __run reporter, options
       reporter.report
 
-      reporter.passed?
+      `window.OPAL_TEST_EXIT_STATUS = #{reporter.passed?}`
     end
 
     ##

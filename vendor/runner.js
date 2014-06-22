@@ -17,7 +17,7 @@ page.open(url, function(loadStatus) {
 
     if (exitStatus != null) {
       clearInterval(loop);
-      phantom.exit(result);
+      phantom.exit(exitStatus);
     }
   }, 500);
 });
