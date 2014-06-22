@@ -9,7 +9,7 @@ module Opal
       RUNNER = File.expand_path('../../../../vendor/runner.js', __FILE__)
 
       def initialize(name = 'opal:minitest')
-        desc "Run MiniTest tests through Opal"
+        desc "Run tests through opal-minitest"
         task(name) do
           require 'rack'
           require 'webrick'
