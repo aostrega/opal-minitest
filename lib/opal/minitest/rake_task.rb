@@ -1,7 +1,8 @@
+require 'rake'
 require 'opal/minitest'
 
 module Opal
-  module MiniTest
+  module Minitest
     class RakeTask
       include Rake::DSL
 

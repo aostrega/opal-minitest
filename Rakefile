@@ -1,2 +1,2 @@
 require 'opal/minitest/rake_task'
-Opal::MiniTest::RakeTask.new(:default)
+Opal::Minitest::RakeTask.new(:default)
