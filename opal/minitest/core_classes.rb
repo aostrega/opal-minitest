@@ -405,7 +405,9 @@ module Minitest
   ##
   # Represents run failures.
 
-  class Assertion < Exception
+  # OMT: modified
+  #class Assertion < Exception
+  class Assertion
     def error # :nodoc:
       self
     end
@@ -429,6 +431,27 @@ module Minitest
     def result_label # :nodoc:
       "Failure"
     end
+
+    # OMT: added
+    def initialize(message = '')
+      @message = message
+    end
+
+    # OMT: added
+    attr_reader :message
+
+    # OMT: added
+    def backtrace
+      []
+    end
+
+    # OMT: added
+    def inspect
+      "#<#{self.class.name}: '#@message'>"
+    end
+
+    # OMT: added
+    alias to_s message
   end
 
   ##

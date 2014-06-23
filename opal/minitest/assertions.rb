@@ -55,7 +55,7 @@ module Minitest
     # comparison between the two.
 
     def diff exp, act
-      # OMT: unsupported
+      # OMT: changed
 #      require "tempfile"
 #
 #      expect = mu_pp_for_diff exp
@@ -98,6 +98,7 @@ module Minitest
 #      end
 #
 #      result
+      "Expected: #{mu_pp exp}\n  Actual: #{mu_pp act}"
     end
 
     ##

@@ -247,6 +247,5 @@ end
 require "minitest/core_classes"
 
 require "minitest/test"
-
 # OMT: unsupported
 #require "minitest/unit" unless defined?(MiniTest) # compatibility layer only
