@@ -87,7 +87,7 @@ module Minitest
     end
 
     def self.on_signal name, action # :nodoc:
-      # OMT: unsupported
+      # OMT: modified
       #supported = Signal.list[name]
 
       #old_trap = trap name do
@@ -95,9 +95,11 @@ module Minitest
       #  action.call
       #end if supported
 
-      yield
+      #yield
     #ensure
       #trap name, old_trap if supported
+
+      yield
     end
 
     ##
