@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.description  = 'MiniTest test runner for Opal'
 
   s.files = `git ls-files`.split("\n")
-  s.files << 'opal/opal/minitest/minitest.js'
 
   s.require_paths  = ['lib']
 
