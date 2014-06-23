@@ -21,6 +21,8 @@ Add the gem to a project's Gemfile.
 gem 'opal-minitest'
 ```
 
+`$ bundle install`
+
 Use the Rake task to headlessly run the project's tests.
 
 ```ruby
