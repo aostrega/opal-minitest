@@ -399,27 +399,26 @@ module Minitest
     # NOTE: For efficiency, this method uses StringIO and does not
     # capture IO for subprocesses. Use #capture_subprocess_io for
     # that.
-    # OMT: unsupported
 
-#    def capture_io
-#      _synchronize do
-#        begin
-#      require 'stringio'
-#
-#      captured_stdout, captured_stderr = StringIO.new, StringIO.new
-#
-#      orig_stdout, orig_stderr = $stdout, $stderr
-#      $stdout, $stderr         = captured_stdout, captured_stderr
-#
-#      yield
-#
-#      return captured_stdout.string, captured_stderr.string
-#    ensure
-#      $stdout = orig_stdout
-#      $stderr = orig_stderr
-#        end
-#      end
-#    end
+    def capture_io
+      _synchronize do
+        begin
+      require 'stringio'
+
+      captured_stdout, captured_stderr = StringIO.new, StringIO.new
+
+      orig_stdout, orig_stderr = $stdout, $stderr
+      $stdout, $stderr         = captured_stdout, captured_stderr
+
+      yield
+
+      return captured_stdout.string, captured_stderr.string
+    ensure
+      $stdout = orig_stdout
+      $stderr = orig_stderr
+        end
+      end
+    end
 
     ##
     # Captures $stdout and $stderr into strings, using Tempfile to

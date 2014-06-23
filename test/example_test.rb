@@ -10,4 +10,14 @@ class ExampleTest < Minitest::Test
   def test_skip
     skip "intentional skip"
   end
+
+  def test_capture_io
+    out, err = capture_io do
+      puts 'woo'
+      warn 'boo'
+    end
+
+    assert_match out, 'woo'
+    assert_match err, 'boo'
+  end
 end
