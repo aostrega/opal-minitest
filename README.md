@@ -8,7 +8,7 @@ Currently supports:
 
 * Core classes
 * Test (except parallel running, plugins and CLI options)
-* Assertions (except #capture_subprocess_io)
+* Assertions (except `#capture_subprocess_io`)
 
 Any differences from vanilla Minitest are documented with an `OMT` label.
 
