@@ -3,7 +3,7 @@ require 'opal/minitest/rake_task'
 # Register code in /opal with Opal.
 Opal.append_path File.expand_path('../opal', __FILE__)
 
-Opal::MiniTest::RakeTask.new(:default)
+Opal::Minitest::RakeTask.new(:default)
 
 
 desc "Run tests through regular Minitest"

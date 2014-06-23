@@ -4,6 +4,9 @@
 #require "mutex_m"
 #require "minitest/parallel"
 
+# OMT: added
+require "minitest/core_classes"
+
 ##
 # :include: README.txt
 module Minitest
@@ -242,9 +245,6 @@ module Minitest
     result
   end
 end
-
-# OMT: added
-require "minitest/core_classes"
 
 require "minitest/test"
 # OMT: unsupported
