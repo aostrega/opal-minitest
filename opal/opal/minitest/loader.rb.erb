@@ -1,7 +1,7 @@
 <% require_asset 'opal' %>
 <% require_asset 'minitest' %>
 
-<% Dir['test/**/*_test.{rb,opal}'].each { |file|
+<% Dir['test/{test_helper,**/*_test}.{rb,opal}'].each { |file|
   require_asset file.sub(/^test\//, '').sub(/\.{rb,opal}$/, '')
 } %>
 
