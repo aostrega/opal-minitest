@@ -13,5 +13,6 @@ task('regtest') do
 
   %w[opal test].each { |p| $LOAD_PATH << p }
 
+  require_relative 'test/test_helper.rb'
   Dir['test/**/*_test.rb'].each { |f| require_relative f }
 end
