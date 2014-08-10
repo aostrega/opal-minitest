@@ -1,20 +1,10 @@
 # opal-minitest
 
-Opal port/utilities for MiniTest
-
-## Status
-
-Currently supports:
-
-* Core classes
-* Test (except parallel running, plugins and CLI options)
-* Assertions (except `#capture_subprocess_io`)
-
-Any differences from vanilla Minitest are documented with an `OMT` label.
+Minitest, now for Opal!
 
 ## Usage
 
-Add the gem to a project's Gemfile.
+First, add the `opal-minitest` gem to a project's Gemfile.
 
 ```ruby
 # Gemfile
@@ -23,7 +13,7 @@ gem 'opal-minitest'
 
 `$ bundle install`
 
-Use the Rake task to headlessly run the project's tests.
+Finally, use the included Rake task to headlessly run the project's tests.
 
 ```ruby
 # Rakefile
@@ -33,4 +23,10 @@ Opal::Minitest::RakeTask.new(:default)
 
 `$ bundle exec rake`
 
-This will require standard test_helper and test code files and then run all tests.
+This will run all Ruby/Opal files ending in `_test` in the `test/` directory, after an optional `test_helper` file in the same directory. Try the example!
+
+## Status
+
+Opal Minitest can currently do everything regular Minitest can, except parallel running, plugins, CLI options, and `#capture_subprocess_io`.
+
+Any code differences in the port from regular Minitest are documented with an `OMT` label.
