@@ -1,10 +1,10 @@
-# OMT: unsupported
+# PORT: unsupported
 #require "optparse"
 #require "thread"
 #require "mutex_m"
 #require "minitest/parallel"
 
-# OMT: added
+# PORT: added
 require "minitest/core_classes"
 
 ##
@@ -20,7 +20,7 @@ module Minitest
 
   ##
   # Parallel test executor
-  # OMT: unsupported
+  # PORT: unsupported
 
   #mc.send :attr_accessor, :parallel_executor
   #self.parallel_executor = Parallel::Executor.new((ENV['N'] || 2).to_i)
@@ -39,13 +39,13 @@ module Minitest
 
   ##
   # Names of known extension plugins.
-  # OMT: unsupported
+  # PORT: unsupported
 
   #mc.send :attr_accessor, :extensions
 
   ##
   # Registers Minitest to run at process exit
-  # OMT: unsupported
+  # PORT: unsupported
 
 #  def self.autorun
 #    at_exit {
@@ -73,7 +73,7 @@ module Minitest
     @@after_run << block
   end
 
-  # OMT: unsupported
+  # PORT: unsupported
   #def self.init_plugins options # :nodoc:
   #  self.extensions.each do |name|
   #    msg = "plugin_#{name}_init"
@@ -81,7 +81,7 @@ module Minitest
   #  end
   #end
 
-  # OMT: unsupported
+  # PORT: unsupported
   #def self.load_plugins # :nodoc:
   #  return unless self.extensions.empty?
 
@@ -118,7 +118,7 @@ module Minitest
   #                   klass.new(runnable_method).run
 
   def self.run args = []
-    # OMT: removed
+    # PORT: removed
     #self.load_plugins
 
     options = process_args args
@@ -128,17 +128,17 @@ module Minitest
     reporter << ProgressReporter.new(options[:io], options)
 
     self.reporter = reporter # this makes it available to plugins
-    # OMT: removed
+    # PORT: removed
     #self.init_plugins options
     self.reporter = nil # runnables shouldn't depend on the reporter, ever
 
     reporter.start
     __run reporter, options
-    # OMT: removed
+    # PORT: removed
     #self.parallel_executor.shutdown
     reporter.report
 
-    # OMT: modified
+    # PORT: modified
     #reporter.passed?
     `window.OPAL_TEST_EXIT_STATUS = #{reporter.passed?}`
   end
@@ -169,7 +169,7 @@ module Minitest
               }
     orig_args = args.dup
 
-    # OMT: unsupported
+    # PORT: unsupported
 #    OptionParser.new do |opts|
 #      opts.banner  = "minitest options:"
 #      opts.version = Minitest::VERSION
@@ -234,7 +234,7 @@ module Minitest
   end
 
   ##
-  # OMT: section moved to core_classes.rb
+  # PORT: section moved to core_classes.rb
   ##
 
   self.backtrace_filter = BacktraceFilter.new
@@ -247,5 +247,5 @@ module Minitest
 end
 
 require "minitest/test"
-# OMT: unsupported
+# PORT: unsupported
 #require "minitest/unit" unless defined?(MiniTest) # compatibility layer only

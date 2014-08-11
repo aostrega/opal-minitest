@@ -1,4 +1,4 @@
-# OMT: removed
+# PORT: removed
 #require "rbconfig"
 
 module Minitest
@@ -24,7 +24,7 @@ module Minitest
     # figure out what diff to use.
 
     def self.diff
-      # OMT: unsupported
+      # PORT: unsupported
 #      @diff = if (RbConfig::CONFIG['host_os'] =~ /mswin|mingw/ &&
 #                  system("diff.exe", __FILE__, __FILE__)) then
 #                "diff.exe -u"
@@ -55,7 +55,7 @@ module Minitest
     # comparison between the two.
 
     def diff exp, act
-      # OMT: changed
+      # PORT: changed
 #      require "tempfile"
 #
 #      expect = mu_pp_for_diff exp
@@ -434,7 +434,7 @@ module Minitest
     #
     # NOTE: This method is approximately 10x slower than #capture_io so
     # only use it when you need to test the output of a subprocess.
-    # OMT: unsupported
+    # PORT: unsupported
 
 #    def capture_subprocess_io
 #      _synchronize do

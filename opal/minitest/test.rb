@@ -1,4 +1,4 @@
-# OMT: removed
+# PORT: removed
 #require "minitest" unless defined? Minitest::Runnable
 
 module Minitest
@@ -12,12 +12,12 @@ module Minitest
     require "minitest/assertions"
     include Minitest::Assertions
 
-    # OMT: modified
+    # PORT: modified
     #PASSTHROUGH_EXCEPTIONS = [NoMemoryError, SignalException, # :nodoc:
     #                          Interrupt, SystemExit]
     PASSTHROUGH_EXCEPTIONS = [SystemExit] # :nodoc:
 
-    # OMT: unsupported
+    # PORT: unsupported
     #class << self; attr_accessor :io_lock; end
     #self.io_lock = Mutex.new
 
@@ -51,7 +51,7 @@ module Minitest
     # Call this at the top of your tests when you want to run your
     # tests in parallel. In doing so, you're admitting that you rule
     # and your tests are awesome.
-    # OMT: unsupported
+    # PORT: unsupported
 
     #def self.parallelize_me!
     #  include Minitest::Parallel::Test
@@ -65,7 +65,7 @@ module Minitest
 
     def self.runnable_methods
       methods = methods_matching(/^test_/)
-      # OMT: added
+      # PORT: added
       methods.delete('test_order')
 
       case self.test_order

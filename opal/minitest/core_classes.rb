@@ -87,7 +87,7 @@ module Minitest
     end
 
     def self.on_signal name, action # :nodoc:
-      # OMT: modified
+      # PORT: modified
       #supported = Signal.list[name]
 
       #old_trap = trap name do
@@ -173,7 +173,7 @@ module Minitest
   # you want. Go nuts.
 
   class AbstractReporter
-    # OMT: unsupported
+    # PORT: unsupported
     #include Mutex_m
 
     ##
@@ -327,7 +327,7 @@ module Minitest
     def report # :nodoc:
       super
 
-      # OMT: unsupported
+      # PORT: unsupported
       #io.sync = self.old_sync
 
       io.puts unless options[:verbose] # finish the dots
@@ -407,7 +407,7 @@ module Minitest
   ##
   # Represents run failures.
 
-  # OMT: modified
+  # PORT: modified
   #class Assertion < Exception
   class Assertion
     def error # :nodoc:
@@ -434,25 +434,25 @@ module Minitest
       "Failure"
     end
 
-    # OMT: added
+    # PORT: added
     def initialize(message = '')
       @message = message
     end
 
-    # OMT: added
+    # PORT: added
     attr_reader :message
 
-    # OMT: added
+    # PORT: added
     def backtrace
       []
     end
 
-    # OMT: added
+    # PORT: added
     def inspect
       "#<#{self.class.name}: '#@message'>"
     end
 
-    # OMT: added
+    # PORT: added
     alias to_s message
   end
 
@@ -513,7 +513,7 @@ module Minitest
 
     ##
     # Is this running on opal?
-    # OMT: added
+    # PORT: added
 
     def opal? platform = RUBY_PLATFORM
       "opal" == platform
