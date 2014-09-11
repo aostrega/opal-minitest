@@ -6,34 +6,52 @@ module Opal
     class RakeTask
       include Rake::DSL
 
-      PORT = 2838
-      RUNNER = File.expand_path('../../../../vendor/runner.js', __FILE__)
+      RUNNER_PATH = File.expand_path('../../../../vendor/runner.js', __FILE__)
 
-      def initialize(name = 'opal:minitest')
+      def initialize(args)
+        args = defaults.merge(args)
+
         desc "Run tests through opal-minitest"
-        task(name) do
+        task(args[:name]) do
           require 'rack'
           require 'webrick'
 
           server = fork {
             Rack::Server.start(
-              app: Server.new,
-              Port: PORT,
+              app: Server.new(requires_glob: args[:requires_glob]),
+              Port: args[:port],
               server: 'webrick',
               Logger: WEBrick::Log.new('/dev/null'),
               AccessLog: [])
           }
 
-          system "phantomjs #{RUNNER} \"http://localhost:#{PORT}\""
+          system "phantomjs #{RUNNER_PATH} \"http://localhost:#{args[:port]}\""
 
           Process.kill(:SIGINT, server)
           Process.wait
         end
       end
 
+      private
+
+      def defaults
+        {
+          name: 'opal:minitest',
+          port: 2838,
+          requires_glob: 'test/{test_helper,**/*_test}.{rb,opal}'
+        }
+      end
+
       class Server < Opal::Server
-        def initialize
+        attr_reader :requires_glob
+
+        def initialize(args)
+          gem_path = Pathname.new(__FILE__).join('../../../..')
+          self.index_path = gem_path.join('opal/opal/minitest/runner.html.erb').to_s
+
           super
+
+          $omt_requires_glob = args.fetch(:requires_glob)
 
           $LOAD_PATH.each { |p| append_path(p) }
           append_path 'test'

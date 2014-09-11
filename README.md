@@ -18,7 +18,7 @@ Finally, use the included Rake task to headlessly run the project's tests.
 ```ruby
 # Rakefile
 require 'opal/minitest/rake_task'
-Opal::Minitest::RakeTask.new(:default)
+Opal::Minitest::RakeTask.new(name: :default)
 ```
 
 `$ bundle exec rake`
