@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.name         = 'opal-minitest'
   s.version      = Opal::Minitest::VERSION
   s.author       = 'Artur Ostrega'
-  s.email        = 'artur.mariusz.ostrega@gmail.com'
-  s.summary      = 'MiniTest for Opal'
-  s.description  = 'MiniTest test runner for Opal'
+  s.email        = 'skoofoo@gmail.com'
+  s.summary      = 'Minitest, now for Opal!'
+  s.description  = 'Minitest test runner for Opal'
 
   s.files = `git ls-files`.split("\n")
 
@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'opal', '>= 0.6'
   s.add_dependency 'rake', '~> 10.3'
-  s.add_development_dependency 'minitest', '5.3.2'
+  s.add_development_dependency 'minitest', '5.3.4'
 end
 
