@@ -1,8 +1,8 @@
-<% require_asset 'opal' %>
-<% require_asset 'minitest' %>
+require 'opal'
+require 'minitest'
 
-<% Dir[$omt_requires_glob].each { |file|
-  require_asset file.sub(/^test\//, '').sub(/\.{rb,opal}$/, '')
-} %>
+<% Dir[$omt_requires_glob].each do |file| %>
+require <%= file.sub(/^test\//, '').sub(/\.{rb,opal}$/, '').inspect %>
+<% end %>
 
 Minitest.run
