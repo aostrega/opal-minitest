@@ -8,7 +8,7 @@ module Opal
 
       RUNNER_PATH = File.expand_path('../../../../vendor/runner.js', __FILE__)
 
-      def initialize(args)
+      def initialize(args = {})
         args = defaults.merge(args)
 
         desc "Run tests through opal-minitest"
@@ -37,7 +37,7 @@ module Opal
 
       def defaults
         {
-          name: 'opal:minitest',
+          name: 'default',
           port: 2838,
           requires_glob: 'test/{test_helper,**/*_test}.{rb,opal}'
         }
