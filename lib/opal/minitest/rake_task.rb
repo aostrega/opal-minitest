@@ -15,6 +15,7 @@ module Opal
         task(args[:name]) do
           require 'rack'
           require 'webrick'
+          require 'tilt/erb'
 
           server = fork {
             Rack::Server.start(
@@ -25,7 +26,7 @@ module Opal
               AccessLog: [])
           }
 
-          system "phantomjs #{RUNNER_PATH} \"http://localhost:#{args[:port]}\""
+          system "phantomjs \"#{RUNNER_PATH}\" \"http://localhost:#{args[:port]}\""
 
           Process.kill(:SIGINT, server)
           Process.wait

@@ -1,6 +1,8 @@
 // Headlessly open test loader and wait until tests finish.
 
-var url = phantom.args[0],
+var system = require('system');
+
+var url = system.args[1],
     page = require('webpage').create();
 
 page.onConsoleMessage = function(msg) { console.log(msg) };
