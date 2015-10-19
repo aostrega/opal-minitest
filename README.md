@@ -23,7 +23,7 @@ Opal::Minitest::RakeTask.new
 
 `$ bundle exec rake`
 
-This will run all files ending in `_test.{rb,opal}` in the `test/` directory, after an optional `test_helper.{rb,opal}` file. Try the example!
+This will run all files ending in `_test.(rb|opal)` in the `test/` directory, after an optional `test_helper.(rb|opal)` file. Try the example!
 
 ## Status
 
