@@ -26,7 +26,7 @@ module Opal
               AccessLog: [])
           }
 
-          system "phantomjs \"#{RUNNER_PATH}\" \"http://localhost:#{args[:port]}\""
+          system "phantomjs",  RUNNER_PATH, "http://localhost:#{args[:port]}"
 
           Process.kill(:SIGINT, server)
           Process.wait
