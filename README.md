@@ -1,6 +1,6 @@
 # opal-minitest
 
-Minitest, now for Opal!
+Minitest, now for Opal! (not complete)
 
 ## Usage
 
@@ -29,6 +29,8 @@ This will run tests and code in all project files matching `test/{test_helper,**
 
 ## Status
 
-Opal Minitest supports everything in normal Minitest except parallel test running, plugins, CLI options, and `#capture_subprocess_io`.
+Opal Minitest supports everything in minitest/unit except parallel test running, plugins, CLI options, and `#capture_subprocess_io`.
+
+Opal Minitest does not yet support minitest/spec, minitest/benchmark, minitest/mock, or minitest/pride.
 
 All code differences from normal Minitest are documented with the label `PORT`.
