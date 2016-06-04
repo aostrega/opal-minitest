@@ -5,7 +5,7 @@ var system = require('system');
 var url = system.args[1],
     page = require('webpage').create();
 
-page.onConsoleMessage = function(msg) { console.log(msg) };
+page.onConsoleMessage = function(msg) { system.stdout.write(msg) };
 
 page.open(url, function(loadStatus) {
   if (loadStatus !== 'success') {
