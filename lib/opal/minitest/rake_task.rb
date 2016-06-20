@@ -26,7 +26,11 @@ module Opal
               AccessLog: [])
           }
 
-          system "phantomjs",  RUNNER_PATH, "http://localhost:#{args[:port]}"
+          unless system "phantomjs -v"
+            raise "phantomjs command not found"
+          end
+
+          system "phantomjs", RUNNER_PATH, "http://localhost:#{args[:port]}"
 
           Process.kill(:SIGINT, server)
           Process.wait
