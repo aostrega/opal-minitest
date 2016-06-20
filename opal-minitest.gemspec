@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.summary      = 'Minitest, now for Opal!'
   s.description  = 'Minitest test runner for Opal'
   s.license      = 'MIT'
-  s.homepage     = 'https://github.com/aost/opal-minitest'
-  s.author       = 'Artur Ostręga'
-  s.email        = 'artmarost@gmail.com'
+  s.homepage     = 'https://github.com/aostrega/opal-minitest'
+  s.author       = 'Artur Ostrega'
+  s.email        = 'artur@ostrega.me'
 
   s.files = `git ls-files`.split("\n")
 
