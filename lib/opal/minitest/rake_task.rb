@@ -1,4 +1,5 @@
 require 'rake'
+require 'phantomjs'
 require 'opal/minitest'
 
 module Opal
@@ -26,11 +27,7 @@ module Opal
               AccessLog: [])
           }
 
-          unless system "phantomjs -v"
-            raise "phantomjs command not found"
-          end
-
-          system "phantomjs", RUNNER_PATH, "http://localhost:#{args[:port]}"
+          system Phantomjs.path, RUNNER_PATH, "http://localhost:#{args[:port]}"
 
           Process.kill(:SIGINT, server)
           Process.wait
