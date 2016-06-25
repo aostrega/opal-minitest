@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'opal', '>= 0.8'
   s.add_dependency 'rake', '~> 10'
+  s.add_dependency 'phantomjs'
   s.add_development_dependency 'minitest', '5.3.4'
 end
 
