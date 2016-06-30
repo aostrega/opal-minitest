@@ -407,9 +407,7 @@ module Minitest
   ##
   # Represents run failures.
 
-  # PORT: modified
-  #class Assertion < Exception
-  class Assertion
+  class Assertion < Exception
     def error # :nodoc:
       self
     end
