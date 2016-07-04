@@ -1,8 +1,12 @@
 require 'opal'
 require 'minitest'
+require 'opal/minitest/source_map_backtrace_filter'
 
 <% Dir[$omt_requires_glob].each do |file| %>
 require <%= file.sub(/^test\//, '').sub(/\.(rb|opal)$/, '').inspect %>
 <% end %>
 
-Minitest.run
+def run_minitest(sourcemap)
+  Minitest.backtrace_filter = Opal::Minitest::SourceMapBacktraceFilter.new(sourcemap)
+  Minitest.run
+end

@@ -138,9 +138,7 @@ module Minitest
     #self.parallel_executor.shutdown
     reporter.report
 
-    # PORT: modified
-    #reporter.passed?
-    `window.OPAL_TEST_EXIT_STATUS = #{reporter.passed?}`
+    reporter.passed?
   end
 
   ##
