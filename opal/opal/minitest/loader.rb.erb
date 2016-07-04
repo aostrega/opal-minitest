@@ -1,6 +1,8 @@
 require 'opal'
 require 'minitest'
 
+Encoding.default_external ||= 'UTF-8'
+
 <% Dir[$omt_requires_glob].each do |file| %>
 require <%= file.sub(/^test\//, '').sub(/\.(rb|opal)$/, '').inspect %>
 <% end %>
