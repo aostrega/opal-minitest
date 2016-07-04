@@ -8,11 +8,16 @@ module Opal
         @sourcemap = sourcemap
       end
 
-      def map_frame(source, line, column)
+      def mapping(source, line, column)
         map = @sourcemap[source]
         if map
-          map = SourceMap::Map.from_json(map)
-          mapping = map.bsearch(SourceMap::Offset.new(line.to_i, column.to_i))
+          SourceMap::Map.from_json(map).bsearch(SourceMap::Offset.new(line.to_i, column.to_i))
+        end
+      end
+
+      def map_frame(source, line, column)
+        mapping = mapping(source, line, column)
+        if mapping
           source = mapping.source.sub(%r{^/__OPAL_SOURCE_MAPS__/|/}, '')
           line = mapping.original.line
           column = mapping.original.column
