@@ -17,7 +17,7 @@ class ExampleTest < Minitest::Test
       warn 'boo'
     end
 
-    assert_match out, 'woo'
-    assert_match err, 'boo'
+    assert_match 'woo', out
+    assert_match 'boo', err
   end
 end
