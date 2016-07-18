@@ -433,25 +433,9 @@ module Minitest
     end
 
     # PORT: added
-    def initialize(message = '')
-      @message = message
-    end
-
-    # PORT: added
-    attr_reader :message
-
-    # PORT: added
     def backtrace
-      []
+      Minitest::filter_backtrace(super)
     end
-
-    # PORT: added
-    def inspect
-      "#<#{self.class.name}: '#@message'>"
-    end
-
-    # PORT: added
-    alias to_s message
   end
 
   ##

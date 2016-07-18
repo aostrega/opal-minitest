@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'minitest'
 require 'source_map'
 
@@ -15,7 +16,7 @@ module Opal
         end
       end
 
-      def map_frame(source, line, column)
+      def map_frame(method, source, line, column)
         mapping = mapping(source, line, column)
         if mapping
           source = mapping.source.sub(%r{^/__OPAL_SOURCE_MAPS__/|/}, '')
@@ -25,13 +26,16 @@ module Opal
           source =~ %r{^http://localhost:\d+/assets/(.*)\.self([^\?]*)}
           source = "#{$1}#{$2}"
         end
-        "#{source}:#{line}:#{column}"
+        frame = "#{source}:#{line}:#{column}"
+        #                                   This is a special utf8 char ---v
+        frame += ":in `#{method[1..-1]}'" if method && method.start_with?('ː')
+        frame
       end
 
       def filter bt
         super.map do |frame|
-          frame =~ /^(?:.*@)?(.*):(\d+):(\d+)$/
-          map_frame($1, $2, $3)
+          frame =~ /^(?:(.*)@)?(.*):(\d+):(\d+)$/
+          map_frame($1, $2, $3, $4)
         end
       end
     end
