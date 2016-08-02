@@ -6,13 +6,13 @@ module Opal
   module Minitest
     class SourceMapBacktraceFilter < ::Minitest::BacktraceFilter
       def initialize(sourcemap)
-        @sourcemap = sourcemap
+        @sourcemap = sourcemap.map { |source, map| [source, SourceMap::Map.from_json(map)] }.to_h
       end
 
       def mapping(source, line, column)
         map = @sourcemap[source]
         if map
-          SourceMap::Map.from_json(map).bsearch(SourceMap::Offset.new(line.to_i, column.to_i))
+          map.bsearch(SourceMap::Offset.new(line.to_i, column.to_i))
         end
       end
 
