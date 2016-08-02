@@ -51,9 +51,6 @@ module Opal
         attr_reader :requires_glob
 
         def initialize(args)
-          gem_path = Pathname.new(__FILE__).join('../../../..')
-          self.index_path = gem_path.join('opal/opal/minitest/runner.html.erb').to_s
-
           super
 
           $omt_requires_glob = args.fetch(:requires_glob)
@@ -61,7 +58,6 @@ module Opal
           $LOAD_PATH.each { |p| append_path(p) }
           append_path 'test'
           self.main = 'opal/minitest/loader'
-          self.debug = false
         end
       end
     end

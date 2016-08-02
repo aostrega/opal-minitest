@@ -407,9 +407,7 @@ module Minitest
   ##
   # Represents run failures.
 
-  # PORT: modified
-  #class Assertion < Exception
-  class Assertion
+  class Assertion < Exception
     def error # :nodoc:
       self
     end
@@ -435,25 +433,9 @@ module Minitest
     end
 
     # PORT: added
-    def initialize(message = '')
-      @message = message
-    end
-
-    # PORT: added
-    attr_reader :message
-
-    # PORT: added
     def backtrace
-      []
+      Minitest::filter_backtrace(super)
     end
-
-    # PORT: added
-    def inspect
-      "#<#{self.class.name}: '#@message'>"
-    end
-
-    # PORT: added
-    alias to_s message
   end
 
   ##
